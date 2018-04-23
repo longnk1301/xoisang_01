@@ -6,7 +6,10 @@
 @import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/dist/css/bootstrap.css';
+
+// Font Awesome
+@import '~font-awesome/css/font-awesome.css';
 
 .navbar-laravel {
   background-color: #fff;
