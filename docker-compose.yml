@@ -1,0 +1,30 @@
+version: '2'
+services:
+  web:
+    build: .
+    container_name: xoisang-web
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "90:80"
+    extra_hosts:
+      - "xoisang.local:127.0.0.1"
+    links:
+      # - redis
+      - serverdb
+  serverdb:
+    image: mysql:5.7
+    container_name: xoisang-db
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+    ports:
+      - 3406:3306
+  # redis:
+  #   image: redis
+  #   container_name: docker-redis
+  #   volumes:
+  #     - ./data/redis:/data
+  #   ports:
+  #     - "6380:6379"
